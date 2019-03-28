@@ -39,7 +39,7 @@ public class GroupSettingsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef, userRef;
     private StorageReference userprofileRef;
-    String downloadurl;
+    String downloadurl, phonead;
 
     private static final int GALLERY_PICK = 1;
 
@@ -68,6 +68,8 @@ public class GroupSettingsActivity extends AppCompatActivity {
         updateimage = (CircleImageView) findViewById(R.id.set_g_image);
         progressbar = (ProgressBar) findViewById(R.id.gprogressBar);
         spinner = (Spinner) findViewById(R.id.gspinner);
+
+        phonead = getIntent().getStringExtra("for");
 
         ArrayAdapter<CharSequence> add = ArrayAdapter.createFromResource(GroupSettingsActivity.this,
                 R.array.time, android.R.layout.simple_spinner_item);
@@ -99,51 +101,27 @@ public class GroupSettingsActivity extends AppCompatActivity {
                 Toast.makeText(GroupSettingsActivity.this, "Nothing was selected", Toast.LENGTH_SHORT).show();
             }
         });
+        RetreieveUserInfo();
     }
 
     private void RetreieveUserInfo() {
-        rootRef.child("Groups").child(currentUserID).addValueEventListener(new ValueEventListener() {
+        rootRef.child("GroupOwner").child(phonead).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if((dataSnapshot.exists()) && (dataSnapshot.hasChild("name")) && dataSnapshot.hasChild("image") && dataSnapshot.hasChild("status")){
-                    String retrievename = dataSnapshot.child("name").getValue().toString();
-                    String retrievestatus = dataSnapshot.child("status").getValue().toString();
-                    //retrievephoneno = dataSnapshot.child("phone_number").getValue().toString();
-                    currentImage = dataSnapshot.child("image").getValue().toString();
+                if((dataSnapshot.exists()) && (dataSnapshot.hasChild("gtitle")) && dataSnapshot.hasChild("timer")){
+                    String retrievename = dataSnapshot.child("gtitle").getValue().toString();
 
                     updatename.setText(retrievename);
-                    updatestatus.setText(retrievestatus);
-                    Picasso.get().load(currentImage).into(updateimage);
                 }
 
-                else if((dataSnapshot.exists()) && (dataSnapshot.hasChild("name")) && dataSnapshot.hasChild("image")){
-                    String retrievename = dataSnapshot.child("name").getValue().toString();
-                    currentImage = dataSnapshot.child("image").getValue().toString();
+                else if((dataSnapshot.exists()) && (dataSnapshot.hasChild("gtitle"))){
+                    String retrievename = dataSnapshot.child("gtitle").getValue().toString();
 
                     updatename.setText(retrievename);
-                    //updatestatus.setText(retrievestatus);
-                    Picasso.get().load(currentImage).into(updateimage);
                 }
 
-                else if((dataSnapshot.exists()) && (dataSnapshot.hasChild("name"))){
-                    String retrievename = dataSnapshot.child("name").getValue().toString();
-                    updatename.setText(retrievename);
-                    if((dataSnapshot.exists()) && dataSnapshot.hasChild("status")){
-                        String retrievestatus = dataSnapshot.child("status").getValue().toString();
-
-                        updatestatus.setText(retrievestatus);
-                    }
-                }
-
-                else if((dataSnapshot.exists()) && (dataSnapshot.hasChild("name")) && dataSnapshot.hasChild("status")){
-                    String retrievename = dataSnapshot.child("name").getValue().toString();
-                    String retrievestatus = dataSnapshot.child("status").getValue().toString();
-
-                    updatename.setText(retrievename);
-                    updatestatus.setText(retrievestatus);
-                }
                 else{
-                    Toast.makeText(GroupSettingsActivity.this, "Update you profle", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GroupSettingsActivity.this, "Update you Group", Toast.LENGTH_SHORT).show();
                 }
             }
 

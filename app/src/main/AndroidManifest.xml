@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".OnetoOneActivity"></activity>
+        <activity android:name=".EditGroupActivity"></activity>
+        <activity android:name=".OnetoOneActivity" />
         <activity android:name=".GivePer" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />

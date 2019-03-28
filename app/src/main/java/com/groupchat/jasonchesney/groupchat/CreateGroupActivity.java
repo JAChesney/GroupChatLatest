@@ -156,7 +156,8 @@ public class CreateGroupActivity extends AppCompatActivity {
 
                             HashMap<String, Object> grp = new HashMap<>();
                             grp.put(phonenum, phonenum);
-                            rootRef.child("GroupOwner").updateChildren(grp);
+                            grp.put("gtitle", fetchname);
+                            rootRef.child("GroupOwner").child(phonenum).updateChildren(grp);
 
                             HashMap<String, Object> mem = new HashMap<>();
                             mem.put("pname", currentUserName);

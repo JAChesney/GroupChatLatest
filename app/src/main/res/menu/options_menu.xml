@@ -8,6 +8,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/edtmem"
+        android:title="Edit Members"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/group_create"
         android:title="Create Group"
         app:showAsAction="never" />

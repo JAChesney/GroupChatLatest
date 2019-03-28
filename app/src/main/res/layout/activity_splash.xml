@@ -17,28 +17,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/textsplash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="150dp"
-        android:elevation="6dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="500dp"
-            android:layout_height="300dp"
-            android:layout_marginBottom="4dp"
-            android:src="@drawable/logonew" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/texthome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,9 +49,9 @@
         android:id="@+id/menus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="270dp"
+        android:layout_marginEnd="1dp"
         android:elevation="6dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,8 +120,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
             android:layout_marginLeft="70dp"
+            android:layout_marginBottom="50dp"
             android:orientation="horizontal">
 
 
@@ -197,6 +175,28 @@
         app:layout_constraintHorizontal_bias="0.877"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/textsplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="692dp"
+        android:elevation="6dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="300dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/logonew" />
+
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

@@ -76,7 +76,7 @@ public class MainpageActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Toast.makeText(MainpageActivity.this,"in ds",Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainpageActivity.this,"in ds",Toast.LENGTH_LONG).show();
                 ds = dataSnapshot;
 
                 //check pending requests
@@ -239,7 +239,15 @@ public class MainpageActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.group_create) {
             requestNewGroup();
         }
+        if (item.getItemId() == R.id.edtmem) {
+            toeditGroupSettings();
+        }
         return true;
+    }
+
+    private void toeditGroupSettings() {
+        Intent intent = new Intent(MainpageActivity.this, EditGroupActivity.class);
+        startActivity(intent);
     }
 
     private void requestNewGroup() {
